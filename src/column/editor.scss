@@ -15,4 +15,9 @@
 			background-color: #007bff;
 		}
 	}
+	&[data-bg-color="secondary"] {
+		> .editor-block-list__block-edit::before {
+			background-color: #6c757d;
+		}
+	}
 }

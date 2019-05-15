@@ -148,7 +148,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 				value: templateName,
 			} );
 		} );
-		const onChangeTemplate = ( selectedTemplate ) => {
+		const onTemplateChange = ( selectedTemplate ) => {
 			// Grab columns of existing block
 			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
 
@@ -163,30 +163,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 			setAttributes( {
 				template: selectedTemplate,
 			} );
-		};
-
-		const onChangeGutters = ( isChecked ) => {
-			// Grab columns of existing block
-			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
-
-			cols.forEach( ( col ) => {
-				dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, { parentNoGutters: isChecked } );
-			} );
-
-			setAttributes( {
-				noGutters: isChecked,
-			} );
-		};
-
-		const onChangeVerticalAlignment = ( newVerticalAlignment ) => {
-			// Grab columns of existing block
-			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
-
-			cols.forEach( ( col ) => {
-				dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, { parentVerticalAlignment: newVerticalAlignment } );
-			} );
-
-			setAttributes( { verticalAlignment: newVerticalAlignment } );
 		};
 
 		const alignmentControls = [
@@ -262,28 +238,26 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
 							value={ template }
 							options={ templateOptions }
-							onChange={ ( selectedTemplate ) => {
-								onChangeTemplate( selectedTemplate );
+							onChange={ selectedTemplate => {
+								onTemplateChange( selectedTemplate );
 							} }
 						/>
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
-							onChange={ ( isChecked ) => {
-								onChangeGutters( isChecked );
-							} }
+							onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
-						onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+						onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						onChange={ ( newVerticalAlignment ) => onChangeVerticalAlignment( newVerticalAlignment ) }
+						onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>
