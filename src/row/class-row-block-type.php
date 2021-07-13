@@ -44,6 +44,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'verticalAlignment' => array(
 				'type' => 'string',
 			),
+			'editorStackColumns' => array(
+				'type' => 'boolean',
+			),
+			'horizontalGutters' => array(
+				'type' => 'string',
+			),
+			'verticalGutters' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -56,6 +65,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'noGutters' => false,
 			'alignment' => '',
 			'verticalAlignment' => '',
+			'editorStackColumns' => false,
+			'horizontalGutters' => '',
+			'verticalGutters' => '',
 		);
 	}
 

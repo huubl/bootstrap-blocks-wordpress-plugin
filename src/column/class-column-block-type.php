@@ -32,6 +32,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 		 * @var array
 		 */
 		protected $attributes = array(
+			'sizeXxl' => array(
+				'type' => 'number',
+			),
 			'sizeXl' => array(
 				'type' => 'number',
 			),
@@ -47,6 +50,24 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'sizeXs' => array(
 				'type' => 'number',
 			),
+			'equalWidthXxl' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthXl' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthLg' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthMd' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthSm' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthXs' => array(
+				'type' => 'boolean',
+			),
 			'bgColor' => array(
 				'type' => 'string',
 			),
@@ -56,6 +77,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'centerContent' => array(
 				'type' => 'boolean',
 			),
+			'contentVerticalAlignment' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -64,14 +88,22 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 		 * @var array
 		 */
 		protected $default_attributes = array(
+			'sizeXxl' => 0,
 			'sizeXl' => 0,
 			'sizeLg' => 0,
 			'sizeMd' => 0,
 			'sizeSm' => 0,
 			'sizeXs' => 12,
+			'equalWidthXxl' => false,
+			'equalWidthXl' => false,
+			'equalWidthLg' => false,
+			'equalWidthMd' => false,
+			'equalWidthSm' => false,
+			'equalWidthXs' => false,
 			'bgColor' => '',
 			'padding' => '',
 			'centerContent' => false,
+			'contentVerticalAlignment' => '',
 		);
 	}
 

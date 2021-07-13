@@ -1,11 +1,11 @@
-@import "../assets/gutenberg/gutenberg";
+@import "../assets/gutenberg";
 
 [data-type="wp-bootstrap-blocks/button"] {
-	&[data-alignment="center"]{
+	&[data-alignment="center"] {
 		text-align: center;
 	}
 
-	&[data-alignment="right"]{
+	&[data-alignment="right"] {
 		text-align: right;
 	}
 }
@@ -13,7 +13,7 @@
 .wp-block-wp-bootstrap-blocks-button {
 	display: inline-block;
 	padding: 8px 16px;
-	background-color: $blue-wordpress-700;
+	background-color: $blue-50;
 	color: $white;
 }
 
@@ -28,27 +28,30 @@
 	line-height: $default-line-height;
 
 	// The width of input box plus padding plus two icon buttons.
-	$blocks-button__link-input-width: 300px + 2px + 2 * $icon-button-size;
+	$blocks-button__link-input-width: 300px + 2px + 2 * $button-size;
 	width: $blocks-button__link-input-width;
 
+	.block-editor-url-input,
 	.editor-url-input {
 		width: auto;
 	}
 
+	.block-editor-url-input__suggestions,
 	.editor-url-input__suggestions {
-		width: $blocks-button__link-input-width - $icon-button-size - $icon-button-size;
-		z-index: z-index(".block-library-button__inline-link .editor-url-input__suggestions");
+		width: $blocks-button__link-input-width - $button-size - $button-size;
+		z-index: z-index(".block-library-button__inline-link .block-editor-url-input__suggestions");
 	}
 
 	> .dashicon {
-		width: $icon-button-size;
+		width: $button-size;
 	}
 
 	.dashicon {
-		color: $dark-gray-100;
+		color: $gray-600;
 	}
 
+	.block-editor-url-input input[type="text"]::placeholder,
 	.editor-url-input input[type="text"]::placeholder {
-		color: $dark-gray-100;
+		color: $gray-600;
 	}
 }

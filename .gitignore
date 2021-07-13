@@ -1,5 +1,13 @@
 node_modules
 vendor
-build/
-wp-cli.phar
+build/*
+!build/index.js
+!build/index.asset.php
+!build/index.css
+!build/style-index.css
+!build/settings.asset.php
+!build/settings.css
 composer.phar
+/release
+cypress/videos
+cypress/screenshots
